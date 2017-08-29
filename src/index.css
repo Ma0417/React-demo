@@ -1,0 +1,12 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+.box{
+    background: #ccc;
+    width:100px;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+}
