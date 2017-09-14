@@ -1,0 +1,143 @@
+*{
+    margin: 0;;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.container .bg-img{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+.container .title{
+    text-align: center;
+    color: #fff;
+    margin-top: 30px;
+    font-size: 28px;
+    font-family: "Microsoft YaHei UI";
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    -webkit-box-reflect:below 10px -webkit-linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,0) 10%,rgba(250,250,250,0.3));
+}
+.container .data{
+    position: absolute;
+    top: 200px;
+    left: 250px;
+    color: #248142;
+}
+.container .data p{
+    line-height: 30px;
+}
+.container .footer{
+    position: absolute;
+    right: 50px;
+    bottom: -520px;
+    color: #fff;
+}
+/*.container .footer{*/
+    /*position: absolute;*/
+    /*right: 50px;*/
+    /*bottom: 50px;*/
+    /*color: #fff;*/
+    /*text-align: center;*/
+/*}*/
+.container .footer span{
+    font-weight: 100;
+    letter-spacing: 5px;
+    font-size: 12px;
+    line-height: 35px;
+}
+.container .footer h2{
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+.container .footer h4{
+    font-weight: 300;
+}
+.container .login{
+    position: absolute;
+    width: 300px;
+    height: 0px;
+    opacity: 0;
+    /*overflow: hidden;*/
+    left: 50%;
+    top: 150px;
+    margin-left: -150px;
+    text-align: center;
+    background: rgba(255,255,255,0.3);
+    border-radius:20px 0;
+    box-shadow: 0 5px 5px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+.container .login.login-show{
+    display: block;
+    height: 300px;
+    opacity: 1;
+}
+.container .login h2{
+    font-weight: 500;
+    line-height: 50px;
+}
+.container .login input{
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+    height: 30px;
+    width: 200px;
+    border: 0;
+    letter-spacing: 5px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    outline: none;
+}
+.container .login .btn:hover{
+    cursor: pointer;
+}
+.container .login input:focus{
+    border: 1px solid #138010;
+}
+.container .login div{
+    height: 30px;
+    width: 200px;
+    border: 1px solid #fff;
+    margin: 0 auto;
+}
+.container .login span{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.container .login span:hover{
+    cursor: pointer;
+    color: red;
+}
+
+.container .login-btn{
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 450px;
+    left: 50%;
+    margin-left: -50px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: radial-gradient(circle at 100px 100px, rgba(6, 255, 21, 0.62), rgba(0, 0, 0, 0.71));
+    font-size: 24px;
+    font-weight: 300;
+    color: #fff;
+}
+.container .login-btn:hover{
+    cursor: pointer;
+}
