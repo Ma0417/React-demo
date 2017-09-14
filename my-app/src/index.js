@@ -1,58 +1,54 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import { Router,Route,Link,IndexRoute } from 'react-router';
 
-const Dashaboard=class Dashaboard extends Component{
-    render(){
-        return <div>Welcome to the app</div>
+class Demo extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            list:this.props.dataArr
+        }
     }
-}
-
-const App=class App extends Component{
+    toggleChecked(event){
+        let checked=event.target.checked;
+        let index=event.target.getAttribute("data-index");
+        let list=this.state.list;
+        list[index].checked=checked;
+        this.setState=({list})
+    }
     render(){
         return(
-            <div>
-                <h1>APP</h1>
-                <ul>
-                    <li><Link to="/about"></Link>About</li>
-                    <li><Link to="/inbox"></Link>Inbox</li>
-                </ul>
-                {this.props.children}
-            </div>
+            <ul>
+                {this.state.list.map((data,index)=>{
+                    return (
+                        <ListItem data={data} index={index} key={data.name}
+                        toggleChecked={this.toggleChecked}/>
+                    )
+                })}
+            </ul>
         )
     }
 }
-const About=class About extends Component{
+class ListItem extends Component{
     render(){
-        return <h3>About</h3>
-    }
-}
-
-const Inbox=class Inbox extends Component{
-    render(){
-        return (
-            <div>
-                <h2>Inbox</h2>
-                {this.props.children || "Welcome to you Inbox"}
-            </div>
+        let data=this.props.data;
+        let index=this.props.index;
+        return(
+            <li>
+                <input type="checkbox" data-index={index} checked={data.checked} onChange={this.props.toggleChecked}/>
+                <span>{data.name}</span>
+            </li>
         )
     }
 }
-const Message=class Message extends Component{
-    render(){
-        return <h3>Message {this.props.params.id}</h3>
-    }
+let dataArr=[];
+for(let i=0;i<2000;i++){
+    let checked=Math.random()<0.5;
+    dataArr.push({
+        name:i,
+        checked
+    })
 }
-
 ReactDOM.render(
-    <Router>
-        <Route path="/" component={App}>
-            <IndexRoute component={Dashaboard}/>
-            <Route path="about" component={About}/>
-            <Route path="inbox" component={Inbox}>
-                <Route path="messages/:id" component={Message}/>
-            </Route>
-        </Route>
-    </Router>,
+    <Demo dataArr={dataArr}/>,
     document.getElementById('root')
 );
