@@ -1,54 +1,44 @@
-import React,{Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import KanbanBoard from './component/Kanbanboard';
 
-class Demo extends Component{
-    constructor(props){
-        super(props);
-        this.state={
-            list:this.props.dataArr
-        }
+
+let cardsList=[
+    {
+        id:1,
+        title:'读书',
+        description:'读《深入浅出react-redux》',
+        status:'in-propgress',
+        tasks:[]
+    },
+    {
+        id:2,
+        title:"写代码",
+        description:'写一些小组件',
+        status:'todo',
+        tasks:[
+            {
+                id:1,
+                name:'音乐播放器',
+                done:true
+            },
+            {
+                id:2,
+                name:'写todo应用',
+                done:'false'
+            },
+            {
+                id:3,
+                name:'写看板组件',
+                done:'flase'
+            }
+        ]
     }
-    toggleChecked(event){
-        let checked=event.target.checked;
-        let index=event.target.getAttribute("data-index");
-        let list=this.state.list;
-        list[index].checked=checked;
-        this.setState=({list})
-    }
-    render(){
-        return(
-            <ul>
-                {this.state.list.map((data,index)=>{
-                    return (
-                        <ListItem data={data} index={index} key={data.name}
-                        toggleChecked={this.toggleChecked}/>
-                    )
-                })}
-            </ul>
-        )
-    }
-}
-class ListItem extends Component{
-    render(){
-        let data=this.props.data;
-        let index=this.props.index;
-        return(
-            <li>
-                <input type="checkbox" data-index={index} checked={data.checked} onChange={this.props.toggleChecked}/>
-                <span>{data.name}</span>
-            </li>
-        )
-    }
-}
-let dataArr=[];
-for(let i=0;i<2000;i++){
-    let checked=Math.random()<0.5;
-    dataArr.push({
-        name:i,
-        checked
-    })
-}
+]
+
+
 ReactDOM.render(
-    <Demo dataArr={dataArr}/>,
+
+    <KanbanBoard />,
     document.getElementById('root')
-);
+)
