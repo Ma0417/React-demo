@@ -1,4 +1,22 @@
 *{
     margin: 0;;
     padding: 0;
+    box-sizing: border-box;
+}
+/*body{*/
+    /*background: darkred;*/
+/*}*/
+.box{
+    width: 500px;
+    height: 300px;
+}
+.title{
+    width: 100%;
+    height: 30%;
+    background: blue;
+}
+.content{
+    width: 100%;
+    height: 70%;
+    background: #000;
 }
