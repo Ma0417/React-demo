@@ -1,26 +1,20 @@
-import React,{Component} from 'react';
-import './index.css'
+import React, {Component} from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-class App extends Component{
-    constructor(props){
-        super(props);
-        this.onClickButton=this.onClickButton.bind(this);
-        this.state={
-            count:0
-        };
-    }
-    onClickButton(){
-        this.setState({count:this.state.count+1});
-    }
-    render(){
+class App extends Component {
+    render() {
         return (
-            <div>
-                <button className="box" onClick={this.onClickButton}>Click Me</button>
-                <div>
-                    Click Count:{this.state.count}
-                </div>
+            <div className="App">
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo"/>
+                    <h1 className="App-title">Welcome to React</h1>
+                </header>
+                <p className="App-intro">
+                    To get started, edit <code>src/App.js</code> and save to reload.
+                </p>
             </div>
-        )
+        );
     }
 }
 
